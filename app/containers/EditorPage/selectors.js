@@ -12,6 +12,11 @@ const selectEditorPageDomain = () => state => state.get('editorPage');
 const makeEditing = () =>
   createSelector(selectEditorPageDomain(), substate => substate.get('editing'));
 
+const makeComponents = () =>
+  createSelector(selectEditorPageDomain(), substate =>
+    substate.get('components'),
+  );
+
 /**
  * Default selector used by EditorPage
  */
@@ -20,4 +25,4 @@ const makeSelectEditorPage = () =>
   createSelector(selectEditorPageDomain(), substate => substate.toJS());
 
 export default makeSelectEditorPage;
-export { selectEditorPageDomain, makeEditing };
+export { selectEditorPageDomain, makeEditing, makeComponents };
